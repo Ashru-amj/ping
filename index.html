@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Happy_BornDay_Panda🐼!</title>
+    <title>Happy_BornDay_Didi🐼!</title>
     <link rel="icon" type="image/png" href="images/image3.jpeg">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet" />
     <style>
@@ -780,21 +780,21 @@
         const secondsEl = document.getElementById('seconds');
         const targetText = document.getElementById('targetDateText');
 
+//         function getNextNov11() {
+//     const now = new Date();
+//     const target = new Date(now.getTime() + 5 * 1000); // 5 seconds from now
+//     return target;
+// }
+
+
         function getNextNov11() {
-    const now = new Date();
-    const target = new Date(now.getTime() + 5 * 1000); // 5 seconds from now
-    return target;
-}
-
-
-        // function getNextNov11() {
-        //   const now = new Date();
-        //   const year = now.getFullYear();
-        //   // target at 00:00:00 on Nov 11 (server local time)
-        //   let target = new Date(year, 10, 11, 0, 0, 0, 0);
-        //   if(now > target) target = new Date(year+1, 10, 11, 0, 0, 0, 0);
-        //   return target;
-        // }
+          const now = new Date();
+          const year = now.getFullYear();
+          // target at 00:00:00 on Nov 11 (server local time)
+          let target = new Date(year, 10, 11, 0, 0, 0, 0);
+          if(now > target) target = new Date(year+1, 10, 11, 0, 0, 0, 0);
+          return target;
+        }
 
 
         let countdownTarget = getNextNov11();
