@@ -671,7 +671,7 @@
             <div class="msg">As you celebrate another year of life, know that you are cherished deeply. Wishing you
                 health, happiness, and all that you dream of. Happy Birthday, my dear big sister!</div>
             <button id="giftButton">Click to open ur gift</button>
-            <img id="giftImage" src="/images/gift.jpeg" alt="Gift" />
+            <img id="giftImage" src="/images/gift.jpeg"alt="Gift" />
             <div class="footer">Love you forever and always 💖</div>
             <div class="nav-btn-row">
                 <button class="nav-btn back" onclick="goBack(4)">← Back</button>
@@ -695,16 +695,16 @@
 
  <div class="flip-card" onclick="flipCard(this)">
     <div class="flip-inner">
-      <img src="images/image1.jpeg" alt="Front">
-      <img src="images/image2.jpeg" alt="Back">
+      <img src="/images/image1.jpeg" alt="Front">
+      <img src="/images/image2.jpeg" alt="Back">
     </div>
   </div>
 
   <!-- Image 2 -->
   <div class="flip-card" onclick="flipCard(this)">
     <div class="flip-inner">
-      <img src="images/image3.jpeg" alt="Front">
-      <img src="images/image4.jpeg" alt="Back">
+      <img src="/images/image3.jpeg" alt="Front">
+      <img src="/images/image4.jpeg" alt="Back">
     </div>
   </div>
 
@@ -832,32 +832,39 @@
 
         /* ------------------ LOGIN ------------------ */
         const CORRECT_USER = 'soyam';
-        const CORRECT_PASS = '11112001';
-        const loginBtn = document.getElementById('loginBtn');
-        const loginError = document.getElementById('loginError');
+const CORRECT_PASS = '11112001';
 
-        function showLoginError(msg) {
-            loginError.style.display = 'block';
-            loginError.textContent = msg;
-        }
-        function hideLoginError() { loginError.style.display = 'none'; loginError.textContent = ''; }
+const loginBtn = document.getElementById('loginBtn');
+const loginError = document.getElementById('loginError');
 
-        loginBtn.addEventListener('click', () => {
-            const u = (document.getElementById('username').value || '').trim();
-            const p = (document.getElementById('password').value || '').trim();
-            if (!u || !p) {
-                showLoginError('Please enter username and password.');
-                return;
-            }
-            if (u === CORRECT_USER && p === CORRECT_PASS) {
-                hideLoginError();
-                // Hide login and show page1
-                document.getElementById('loginScreen').style.display = 'none';
-                showPage(1);
-            } //else {
-            //     showLoginError('Invalid credentials. Hint: username "jini" and password "11112001".');
-            //   }
-        });
+function showLoginError(msg) {
+  loginError.textContent = msg;
+  loginError.style.display = 'block';
+}
+
+function hideLoginError() {
+  loginError.textContent = '';
+  loginError.style.display = 'none';
+}
+
+loginBtn.addEventListener('click', () => {
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  if (!username || !password) {
+    showLoginError('Please enter username and password.');
+    return;
+  }
+
+  if (username === CORRECT_USER && password === CORRECT_PASS) {
+    hideLoginError();
+    document.getElementById('loginScreen').style.display = 'none';
+    showPage(1); // Check this function — likely where the slowdown happens
+  } else {
+    showLoginError('Invalid credentials.');
+  }
+});
+
 
         /* ------------------ PAGE NAVIGATION ------------------ */
         const totalPages = 5;
